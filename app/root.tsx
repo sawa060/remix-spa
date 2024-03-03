@@ -6,17 +6,19 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function App() {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
+
       <body>
-        {children}
+        <Outlet />
+
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -24,10 +26,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
-  return <Outlet />;
-}
-
 export function HydrateFallback() {
-  return <p>Loading...</p>;
+  return (
+    <html lang="ja">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="grid h-screen grid-cols-1 place-items-center">
+          Loading...
+        </div>
+        <Scripts />
+      </body>
+    </html>
+  );
 }
