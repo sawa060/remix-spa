@@ -1,3 +1,5 @@
+import "./globals.css";
+
 import {
   Links,
   Meta,
@@ -6,7 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export function App() {
+export default function App() {
   return (
     <html lang="ja">
       <head>
@@ -18,7 +20,6 @@ export function App() {
 
       <body>
         <Outlet />
-
         <ScrollRestoration />
         <Scripts />
       </body>
